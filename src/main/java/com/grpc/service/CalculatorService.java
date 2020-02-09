@@ -16,6 +16,19 @@ import java.io.IOException;
 public class CalculatorService {
 
     public static void main(String[] args) throws IOException, InterruptedException {
+        
+        
+        /* SECURE SERVER
+        
+        final Server server = ServerBuilder.forPort(50051)
+                .useTransportSecurity(
+                    new File("server.crt"),
+                    new File("server.pem"),
+                )
+                .addService(new CalculatorServiceImpl())
+                .build();
+        
+        */
                
         final Server server = ServerBuilder.forPort(50051)
                 .addService(new CalculatorServiceImpl())
