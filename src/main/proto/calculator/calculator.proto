@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package calculator;
+
+option java_package = "com.proto.calculator";
+option java_multiple_files = true;
+
+message SquareRootRequest {
+    int32 number = 1;
+};
+
+message SquareRootResponse {
+   double rooted_number = 1;
+};
+
+message GreetWithDeadlineRequest {
+    string name = 1;
+};
+
+message GreetWithDeadlineResponse {
+    string name_changed = 1;
+};
+
+
+service CalculatorService {
+  
+    //this rpc will throw an exception if the sent number is negative of type INVALID_ARGUMENT
+    rpc SquareRoot(SquareRootRequest) returns (SquareRootResponse) {};
+
+    //this rpc will complete in no less 3000 milliseconds
+    rpc GreetWithDeadline(GreetWithDeadlineRequest) returns (GreetWithDeadlineResponse) {};
+}
